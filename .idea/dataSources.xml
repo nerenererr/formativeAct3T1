@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\DAW\Desktop\NRO DAW1\Programacion\formativeAct3T1\activity.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="activity.sqlite3 [2]" uuid="7fab14c4-5c42-46bf-9d99-75d953eec25d">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\neere\OneDrive\Desktop\DAW\programación\actf\activity.sqlite3</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

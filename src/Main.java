@@ -10,7 +10,7 @@ public class Main  {
     public static void main(String[] args) {
 
         ProductoDAO pdao = new ProductoDAO();
-        System.out.println(pdao.obtenerProdPrecioOrden());
+        System.out.println(pdao.obtenerProdMasCaro());
 
 
 

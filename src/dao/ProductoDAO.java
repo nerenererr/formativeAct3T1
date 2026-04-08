@@ -203,5 +203,70 @@ public class ProductoDAO {
         return productosPrecioOrden;
     }
 
+    public List<Producto> obtenerProdStockOrden() {
+        List<Producto> productosStockOrden = new ArrayList<>();
+        try (Connection conn = DriverManager.getConnection(url)) {
+            String sql = "SELECT * FROM productos ORDER BY stock DESC";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+                String nombre = rs.getString("nombre");
+                String categoria = rs.getString("categoria");
+                double precio = rs.getDouble("precio");
+                int stock = rs.getInt("stock");
+                Producto p = new Producto(nombre, categoria, precio, stock);
+                productosStockOrden.add(p);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return productosStockOrden;
+    }
+
+    public List<Producto> obtenerProdMasCaro() {
+        List<Producto> productosMasCaro = new ArrayList<>();
+        try (Connection conn = DriverManager.getConnection(url)) {
+            String sql = "SELECT * FROM productos ORDER BY precio DESC LIMIT 3";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+                String nombre = rs.getString("nombre");
+                String categoria = rs.getString("categoria");
+                double precio = rs.getDouble("precio");
+                int stock = rs.getInt("stock");
+                Producto p = new Producto(nombre, categoria, precio, stock);
+                productosMasCaro.add(p);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return productosMasCaro;
+    }
+
+    public List<Producto> obtenerPrecioMedio() {
+        List<Producto> precioMedio = new ArrayList<>();
+        try (Connection conn = DriverManager.getConnection(url)) {
+            String sql = "SELECT ";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+                String nombre = rs.getString("nombre");
+                String categoria = rs.getString("categoria");
+                double precio = rs.getDouble("precio");
+                int stock = rs.getInt("stock");
+                Producto p = new Producto(nombre, categoria, precio, stock);
+                precioMedio.add(p);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return precioMedio;
+    }
+
 
 }
